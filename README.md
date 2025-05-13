@@ -1,118 +1,105 @@
 # Angular-SpringBoot-Charity
 This is a full-stack web application built using Angular (frontend) and Spring Boot (backend). The platform is designed to support charity organizations, volunteers, donors, and refugees by facilitating assistance, donations, and communication
 
-🎭 User Roles (Actor Identification)
-Administrator
 
-Validates user and organization registrations.
 
-Monitors user activity and ensures platform security.
 
-Manages permissions and detects/prevents fraud.
+## Features
+- User authentication (JWT-based login, register, logout)
+- Forgot password and reset password functionality
+- Role-based access control (Admin/User)
+- Event management with location selection
+- Integration with Google Maps for event location display
 
-Maintains overall platform operations.
+## Technologies Used
+- **Backend:** Spring Boot, Spring Security, Spring Data JPA
+- **Database:** MySQL/PostgreSQL
+- **Authentication:** JWT, OAuth2 (Google, GitHub)
+- **Frontend (Optional):** Angular 16
+- **Other:** Lombok, MapStruct, Swagger for API documentation
 
-Contributors (Associations, Volunteers, Donors)
+## Prerequisites
+- Java 17+
+- Maven 3+
+- MySQL database
+- Postman/swagger (for API testing, optional)
 
-Register and get verified.
+## Installation
+### 1. Clone the Repository
+```sh
+git clone https://github.com/your-repo.git
+cd your-project
+```
 
-Report or support cases in need.
+### 2. Configure Database
+Update `application.properties` or `application.yml` with your database configuration:
+```properties
+spring.datasource.url=jdbc:mysql://localhost:3306/your_database
+spring.datasource.username=root
+spring.datasource.password=your_password
+spring.jpa.hibernate.ddl-auto=update
+```
 
-Organize events and fundraisers.
+### 3. Build and Run
+```sh
+mvn clean install
+mvn spring-boot:run
+```
+The application will start on `http://localhost:8082`.
 
-Donate money, goods, or information.
+## API Endpoints
+### Authentication
+| Method | Endpoint                 | Description          |
+|--------|--------------------------|----------------------|
+| POST   | `/api/auth/register`     | User registration   |
+| POST   | `/api/auth/login`        | User login          |
+| POST   | `/api/auth/forgot-password` | Send reset link |
+| POST   | `/api/auth/reset-password` | Reset password |
 
-Share resources with refugees.
 
-Beneficiaries (Refugees & People in Need)
+## Running with Docker
+1. Build the Docker image:
+```sh
+docker build -t springboot-app .
+```
+2. Run the container:
+```sh
+docker run -p 8082:8082 springboot-app
+```
 
-Request aid or find shelters/services.
+## Swagger API Documentation
+Once the app is running, access Swagger UI at:
+```
+http://localhost:8082/swagger-ui/index.html
+```
 
-Access verified information.
+## Contributing
+Feel free to submit issues or pull requests.
 
-Receive donations (money/goods).
 
-🛠️ Core Modules & Functional Requirements
-1. Event Management Module
-Filter events by date, category, or location.
+Development server
+Run ng serve for a dev server. Navigate to http://localhost:4200/. The application will automatically reload if you change any of the source files.
 
-Advanced search with autocomplete and suggestions.
+Code scaffolding
+Run ng generate component component-name to generate a new component. You can also use ng generate directive|pipe|service|class|guard|interface|enum|module.
 
-Notify users 3 days before an upcoming event.
+Build
+Run ng build to build the project. The build artifacts will be stored in the dist/ directory.
 
-2. Rewards Management Module
-Notify users when they receive a badge or reach a point threshold.
+Running unit tests
+Run ng test to execute the unit tests via Karma.
 
-Auto-assign badges/points for donations or participation.
+Running end-to-end tests
+Run ng e2e to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
 
-3. Participation Management Module
-Track user engagement using a points and badges system.
+Further help
+To get more help on the Angular CLI use ng help or go check out the Angular CLI Overview and Command Reference page.
 
-Export participant data to CSV or PDF.
 
-Display a leaderboard of most active users.
 
-4. Refugee Support Management Module
-Refugees can create profiles, specify needs, and upload documents.
 
-Match needs to services (e.g., housing, healthcare).
 
-Notify refugees with updates, appointments, and new resources.
 
-Generate reports on common needs and assistance trends.
 
-5. Notification Management Module
-Real-time alerts for messages and activity.
 
-Support for push and email notifications.
-
-Allow custom notification preferences.
-
-Show unread indicators and key event triggers.
-
-6. Case Management Module
-Enable secure registration for missing family cases.
-
-Allow status tracking and updates.
-
-Support document authentication and verification.
-
-🧱 Technical Stack
-Frontend: Angular
-
-Responsive UI for contributors, beneficiaries, and admins.
-
-Modules for event listing, notification display, and dashboard interaction.
-
-Backend: Spring Boot
-
-REST APIs for user roles, donations, events, authentication, notifications.
-
-Handles business logic and database operations.
-
-Database: Likely using MySQL/PostgreSQL, with entities for users, events, cases, etc.
-
-📦 Suggested Repository Structure (Sample)
-css
-Copy
-Edit
-charity-platform/
-├── backend/
-│   └── src/main/java/com/charity/...
-│       ├── controller/
-│       ├── service/
-│       ├── repository/
-│       ├── model/
-│       └── config/
-├── frontend/
-│   └── src/app/
-│       ├── modules/
-│       ├── components/
-│       ├── services/
-│       └── routes/
-├── database/
-│   └── schema.sql
-├── README.md
-├── pom.xml / build.gradle
-└── angular.json
 
