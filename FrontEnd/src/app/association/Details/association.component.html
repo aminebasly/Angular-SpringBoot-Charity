@@ -1,0 +1,45 @@
+<div class="container">
+  <h1>Association List</h1>
+
+  
+
+  <!-- Message d'erreur -->
+  <div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>
+
+  <!-- Liste complète des associations -->
+  <table *ngIf="associations.length > 0; else noData" class="association-table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Category</th>
+        <th>Founding Date</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let assoc of associations">
+        <td>{{ assoc.name }}</td>
+        <td>{{ assoc.associationDescription }}</td>
+        <td>{{ assoc.category }}</td>
+        
+        <td>{{ assoc.foundingDate | date:'dd/MM/yyyy' }}</td>
+        
+        <td>
+          <button (click)="editAssociation(assoc)" class="btn btn-edit">Edit</button>
+          <button (click)="deleteAssociation(assoc.associationId)" class="btn btn-delete">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- No Data Template -->
+  <ng-template #noData>
+    <p>No Associations found.</p>
+  </ng-template>
+
+  
+  
+
+  
+</div>

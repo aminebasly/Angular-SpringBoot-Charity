@@ -1,0 +1,110 @@
+<div class="case-list-container">
+  <!-- Form to add a new case -->
+  <div class="add-case-form">
+    <h2>Add a New Case</h2>
+    <form (ngSubmit)="registerCase()">
+      <div>
+        <label for="identificationNumber">Identification Number</label>
+        <input id="identificationNumber" [(ngModel)]="newCase.identificationNumber" name="identificationNumber"
+          required />
+      </div>
+
+      <div>
+        <label for="title">Title</label>
+        <input id="title" [(ngModel)]="newCase.title" name="title" required />
+      </div>
+      <div>
+        <label for="caseDescription">Case Description</label>
+        <textarea id="caseDescription" [(ngModel)]="newCase.caseDescription" (blur)="onDescriptionBlur()"
+          name="caseDescription" required></textarea>
+      </div>
+      <div>
+        <label for="location">Location</label>
+        <input id="location" [(ngModel)]="newCase.location" name="location" required (blur)="onLocationChange()" />
+      </div>
+      <div>
+        <label for="caseDate">Case Date</label>
+        <input id="caseDate" [(ngModel)]="newCase.caseDate" name="caseDate" type="date" required />
+      </div>
+
+      <div>
+        <label for="caseStatus">Status</label>
+        <select id="caseStatus" [(ngModel)]="newCase.caseStatus" name="caseStatus" required>
+          <option value="PENDING">Pending</option>
+          <option value="IN_PROGRESS">In Progress</option>
+          <option value="RESOLVED">Resolved</option>
+        </select>
+      </div>
+
+      <!-- 🆕 Case Type Dropdown -->
+      <div>
+        <label for="caseType">Case Type</label>
+        <select id="caseType" [(ngModel)]="newCase.caseType" name="caseType" required>
+          <option value="MEDICAL">Medical</option>
+          <option value="EDUCATION">Education</option>
+          <option value="EMERGENCY">Emergency</option>
+          <option value="FOOD">Food</option>
+          <option value="HOUSING">Housing</option>
+          <option value="SDF">SDF (Homeless)</option>
+          <option value="POOR">Poor</option>
+          <option value="SINGLE_MUM">Single Mum</option>
+          <option value="OTHER">Other</option>
+        </select>
+      </div>
+      <div *ngIf="refugeCenter" class="refuge-info">
+        <label class="refuge-label">
+          <input type="checkbox" [(ngModel)]="isRefugeSelected" name="isRefugeSelected" />
+          <span>
+            Possible to assign to <strong>{{ refugeCenter?.name }}</strong> — Location: <em>{{ refugeCenter?.location
+              }}</em>
+          </span>
+        </label>
+      </div>
+
+      <!-- 🆕 Display Recommendation if available -->
+      <div *ngIf="newCase.recommendations" class="recommendation-zone">
+        <h3>Recommended Actions</h3>
+        <p>{{ newCase.recommendations }}</p>
+      </div>
+
+      <button type="submit">Add Case</button>
+    </form>
+  </div>
+
+  <!-- Case List -->
+  <div class="case-list">
+    <h2>Case List</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Identification Number</th>
+          <th>Title</th>
+          <th>Description</th>
+          <th>Location</th>
+          <th>Date</th>
+          <th>Status</th>
+          <th>Type</th> <!-- 🆕 Added column for Type -->
+          <th>Recommendation : </th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let caseItem of cases">
+          <td>{{ caseItem.identificationNumber }}</td>
+          <td>{{ caseItem.title }}</td>
+          <td>{{ caseItem.caseDescription }}</td>
+          <td>{{ caseItem.location }}</td>
+          <td>{{ caseItem.caseDate | date: 'short' }}</td>
+          <td>{{ caseItem.caseStatus }}</td>
+          <td>{{ caseItem.caseType }}</td> <!-- 🆕 Display the case type -->
+          <td>{{caseItem.recommendations?caseItem.recommendations:""}}</td>
+          <td>
+            <button *ngIf="caseItem.caseId" (click)="updateCaseStatus(caseItem.caseId, 'IN_PROGRESS')">Start</button>
+            <button *ngIf="caseItem.caseId" (click)="updateCaseStatus(caseItem.caseId, 'RESOLVED')">Resolve</button>
+            <button *ngIf="caseItem.caseId" (click)="deleteCase(caseItem.caseId)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

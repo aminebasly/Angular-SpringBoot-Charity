@@ -1,0 +1,107 @@
+/* Register container styling */
+.register-container {
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Align items at the top */
+    height: 100vh; /* Full viewport height */
+    padding: 20px;
+    background-color: #f8f9fa;
+    background-image: url('/assets/background.jpg'); /* Path to your image */
+    background-size: cover;  /* Ensures the image covers the entire page */
+    background-position: center; /* Centers the image */
+    background-repeat: no-repeat; /* Prevents image repetition */
+    background-attachment: fixed; /* Keeps the background fixed when scrolling */
+}
+
+.register-form {
+    max-width: 600px; /* Increased the width for larger form */
+    width: 100%;
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    font-size: 2rem; /* Increased font size for heading */
+    color: #333;
+    margin-bottom: 20px; /* Space between title and form fields */
+    text-align: center;
+}
+
+/* Input fields styling */
+.form-control {
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding: 12px; /* Slightly larger padding for more comfortable input */
+    font-size: 1.1rem; /* Slightly larger font for input */
+}
+
+.form-control:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+/* Button styling */
+.btn-custom {
+    font-size: 14px;
+    padding: 10px 20px; /* Larger padding for the button */
+    border-radius: 30px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.btn-custom:hover {
+    background-color: #0056b3;
+    color: white;
+    transform: scale(1.05);
+}
+
+.btn-block {
+    width: 100%;
+}
+
+/* Alert styling */
+.alert {
+    font-size: 0.875rem;
+    margin-top: 15px;
+    padding: 10px;
+}
+
+/* Success and error messages */
+.alert-success {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.alert-danger {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+/* Responsive adjustments */
+@media (max-width: 767px) {
+    .register-container {
+        padding: 15px;
+    }
+
+    .register-form {
+        padding: 20px; /* Slightly reduced padding on mobile */
+    }
+
+    .form-control {
+        font-size: 1rem;
+        padding: 10px;
+    }
+
+    .btn-custom {
+        font-size: 12px;
+        padding: 8px 16px;
+    }
+}
+.error-message {
+    color: red;
+}

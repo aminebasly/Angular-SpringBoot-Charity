@@ -1,0 +1,74 @@
+<div class="container">
+  <!-- Loading Indicator -->
+  <div *ngIf="isLoading" class="loading">Generating report...</div>
+
+  <!-- Error Message -->
+  <div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>
+
+  <!-- Search Form -->
+  <div class="form-container">
+    <h2>Search Testimonials</h2>
+    <form [formGroup]="searchForm" (ngSubmit)="searchTestimonials()">
+      <div>
+        <label for="content">Search by Content:</label>
+        <input id="content" formControlName="content" placeholder="Enter content">
+      </div>
+      <div>
+        <label for="dateFrom">Date From:</label>
+        <input id="dateFrom" type="date" formControlName="dateFrom">
+      </div>
+      <div>
+        <label for="dateTo">Date To:</label>
+        <input id="dateTo" type="date" formControlName="dateTo">
+      </div>
+      <div class="button-group">
+        <button type="submit" class="btn btn-submit">Search</button>
+        <button type="button" class="btn btn-reset" (click)="resetSearch()">Show All</button>
+        <button type="button" class="btn btn-download" (click)="downloadReport()">Download Report</button>
+      </div>
+    </form>
+  </div>
+
+  <!-- Testimonial List (now includes search results) -->
+  <table *ngIf="testimonials.length > 0; else noData" class="testimonial-table">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Content</th>
+        <th>Date Posted</th>
+        <th>Sentiment</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let testimonial of testimonials">
+        <td>{{ testimonial.testimonialTitle }}</td>
+        <td>{{ testimonial.content }}</td>
+        <td>{{ testimonial.datePost | date:'dd/MM/yyyy' }}</td>
+        <td>
+          <ng-container [ngSwitch]="testimonial.sentiment">
+            <span *ngSwitchCase="'positive'" title="Positive">
+              👍 <span class="sentiment-label">Positive</span>
+            </span>
+            <span *ngSwitchCase="'negative'" title="Negative">
+              🤬 <span class="sentiment-label">Negative</span>
+            </span>
+            <span *ngSwitchCase="'neutral'" title="Neutral">
+              😐 <span class="sentiment-label">Neutral</span>
+            </span>
+            <span *ngSwitchDefault>
+              ⏳ <span class="sentiment-label">Analyzing...</span>
+            </span>
+          </ng-container>
+        </td>
+        <td>
+          <button (click)="deleteTestimonial(testimonial.testimId!)" class="btn btn-delete">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <ng-template #noData>
+    <p>No testimonials found.</p>
+  </ng-template>
+</div>

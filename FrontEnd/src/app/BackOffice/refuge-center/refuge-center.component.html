@@ -1,0 +1,40 @@
+<!-- src/app/components/user-list/user-list.component.html -->
+<div class="container">
+    <h1>Refuge List</h1>
+
+
+    <div *ngIf="loading" class="error">Loading centres...</div>
+    <div *ngIf="errorMessage" class="error">{{errorMessage}}</div>
+    <div *ngIf="!isOpenForm">
+        <button class="btn btn-primary" (click)="toggleForm()">Add new Center</button>
+        <table class="event-table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Capacity</th>
+                    <th>location</th>
+                    <th>Cases count </th>
+                    <th>Actions</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let center of refuges">
+                    <td>{{center.name}}</td>
+                    <td>{{center.capacity}}</td>
+                    <td>{{center.location}}</td>
+                    <td>{{center?.cases?.length || 0}}</td>
+                    <td>
+                        <button class="btn btn-danger" (click)="deleteRefuge(center.id!)">Delete </button>
+
+                        <button class="btn btn-warning" (click)="editRefuge(center)">Edit </button>
+
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <app-form *ngIf="isOpenForm" [centerToEdit]="selectedRefuge" (formIsSubmitted)="refetch()"></app-form>
+
+
+</div>

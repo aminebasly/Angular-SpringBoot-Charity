@@ -1,0 +1,234 @@
+<!doctype html>
+<html class="no-js" lang="zxx">
+<main>
+
+    <br><br><br><br><br><br><br><br>
+    <!-- Slider Area End -->
+
+
+
+
+       <!-- Hero Section -->
+<!-- Advanced Hero Section -->
+<section class="hero">
+    <img src="assets/images/helping-hands.jpg" class="hero-image">
+
+    <div class="hero-overlay"></div>
+
+    <div class="hero-content">
+      <h1 class="hero-title">Together, We Support the Vulnerable</h1>
+      <p class="hero-subtitle">Join our mission to provide hope, aid, and opportunity.</p>
+        <button (click)="openAddPopup()" class="btn hero-btn mb-10" data-animation="fadeInLeft" data-delay=".8s">Join as an Association</button>
+    </div>
+  </section>
+
+  <br><br>
+  <!-- Pop-up d'ajout -->
+  <div class="modal" [class.show]="isAddPopupVisible">
+    <div class="modal-content">
+      <h3>Add New Association</h3>
+      <form (ngSubmit)="addAssociation()">
+        <label>Name:</label>
+        <input type="text" [(ngModel)]="newAssociation.name" name="name" required />
+
+        <label>Description:</label>
+        <textarea [(ngModel)]="newAssociation.associationDescription" name="description"></textarea>
+
+        <label>Founding Date:</label>
+        <input type="date" [(ngModel)]="newAssociation.foundingDate" name="foundingDate" required />
+
+
+
+        <!-- File upload input -->
+        <label>Upload PDF Document:</label>
+        <input type="file" (change)="onFileSelected($event)" name="file" accept="application/pdf" required />
+
+        <div class="modal-buttons">
+          <button type="submit" class="btn btn-save">Save</button>
+          <button type="button" (click)="closeAddPopup()" class="btn btn-cancel">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+    <!-- Testimonial Start -->
+    <div class="testimonial-area testimonial-padding">
+        <div class="container">
+            <div class="row d-flex justify-content-center">
+                <div class="col-xl-8 col-lg-8 col-md-10">
+                    <div class="h1-testimonial-active dot-style">
+                        <!-- Single Testimonial Card -->
+                        <div class="single-testimonial text-center">
+                            <div class="testimonial-caption">
+                                <div class="testimonial-founder">
+                                    <div class="founder-img mb-40">
+                                        <img src="/assets/amine.png" alt="Founder Image">
+                                        <span>Amine Basly</span>
+                                        <p>Creative Director</p>
+                                    </div>
+                                </div>
+                                <div class="testimonial-top-cap">
+                                    <p>“At our website, we believe that true change begins with compassion and action. Over the years, we have witnessed incredible transformations—families finding stability, children receiving the education they deserve, and communities coming together to support one another. Seeing the impact of our work firsthand has been both humbling and inspiring"</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Single Testimonial Card End -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Testimonial End -->
+
+    <br><br><br><br><br><br><br><br><br><br><br>
+    <section class="testimonials-section">
+        <h2 class="section-title">What People Are Saying</h2>
+
+        <div class="testimonial-grid">
+          <div *ngFor="let testimonial of positiveTestimonials" class="testimonial-card">
+            <div class="card-header">
+              <img [src]="getRandomUserPic()" alt="User" class="user-avatar">
+              <div class="user-info">
+                <h3>{{ testimonial.testimonialTitle }}</h3>
+                <span class="testimonial-date">{{ testimonial.datePost | date:'dd/MM/yyyy' }}</span>
+              </div>
+            </div>
+
+            <div class="card-body">
+              <p class="testimonial-text">"{{ testimonial.content }}"</p>
+            </div>
+
+            <div class="card-footer">
+              <span class="sentiment-tag">💬 Feedback</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    <br><br><br><br><br><br><br><br><br><br><br>
+
+
+
+
+
+    <!-- Success/Error Messages Display -->
+    <div *ngIf="successMessage" class="success">{{ successMessage }}</div>
+    <div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>
+
+    <!-- Testimonial Submission Form Start -->
+    <div class="form-container">
+        <h2>Submit a Testimonial</h2>
+        <form [formGroup]="testimonialForm" (ngSubmit)="submitTestimonial()">
+            <!-- Title Input Field -->
+            <div>
+                <label for="title">Title:</label>
+                <input
+                    id="title"
+                    formControlName="testimonialTitle"
+                    placeholder="Enter testimonial title"
+                >
+                <div class="error-text" *ngIf="hasError('testimonialTitle', 'required')">
+                    Title is required.
+                </div>
+                <div class="error-text" *ngIf="hasError('testimonialTitle', 'minlength')">
+                    Title must be at least 2 characters long.
+                </div>
+                <div class="error-text" *ngIf="hasError('testimonialTitle', 'maxlength')">
+                    Title cannot exceed 25 characters.
+                </div>
+            </div>
+
+            <!-- Content Input Field with Voice Dictation Button -->
+            <div style="position: relative;">
+                <label for="content">Content:</label>
+                <textarea
+                    id="content"
+                    formControlName="content"
+                    placeholder="Write your testimonial here"
+                    rows="6"
+                    style="padding-right: 40px;"
+                ></textarea>
+                <!-- Microphone Button for Voice-to-Text -->
+                <button
+                    type="button"
+                    (click)="isListening ? stopListening() : startListening()"
+                    class="mic-button"
+                    [ngClass]="{ 'listening': isListening }"
+                    title="Click to dictate"
+                >
+                    <span *ngIf="!isListening">🎤</span>
+                    <span *ngIf="isListening">🟥</span>
+                </button>
+
+                <!-- Validation Error Messages -->
+                <div class="error-text" *ngIf="hasError('content', 'required')">
+                    Content is required.
+                </div>
+                <div class="error-text" *ngIf="hasError('content', 'minlength')">
+                    Content must be at least 10 characters long.
+                </div>
+                <div class="error-text" *ngIf="hasError('content', 'maxlength')">
+                    Content cannot exceed 1000 characters.
+                </div>
+            </div>
+
+            <!-- Hidden Date Field -->
+            <input type="hidden" formControlName="datePost">
+
+            <!-- Submit Testimonial Button -->
+            <button type="submit" class="btn btn-submit" [disabled]="testimonialForm.invalid">
+                Submit Testimonial
+            </button>
+        </form>
+    </div>
+    <!-- Testimonial Submission Form End -->
+
+    <!-- Donation Statistics Start -->
+    <div class="count-down-area pt-25 section-bg" data-background="/assets/FrontOffice/assets/img/gallery/section_bg02.png">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-12 col-md-12">
+                    <div class="count-down-wrapper">
+                        <div class="row justify-content-between">
+                            <!-- Single Counter Card -->
+                            <div class="col-lg-3 col-md-6 col-sm-6">
+                                <div class="single-counter text-center">
+                                    <span class="counter color-green">6,200</span>
+                                    <span class="plus">+</span>
+                                    <p class="color-green">Donation</p>
+                                </div>
+                            </div>
+                            <!-- Single Counter Card -->
+                            <div class="col-lg-3 col-md-6 col-sm-6">
+                                <div class="single-counter text-center">
+                                    <span class="counter color-green">80</span>
+                                    <span class="plus">+</span>
+                                    <p class="color-green">Fund Raised</p>
+                                </div>
+                            </div>
+                            <!-- Single Counter Card -->
+                            <div class="col-lg-3 col-md-6 col-sm-6">
+                                <div class="single-counter text-center">
+                                    <span class="counter color-green">256</span>
+                                    <span class="plus">+</span>
+                                    <p class="color-green">Donation</p>
+                                </div>
+                            </div>
+                            <!-- Single Counter Card -->
+                            <div class="col-lg-3 col-md-6 col-sm-6">
+                                <div class="single-counter text-center">
+                                    <span class="counter color-green">256</span>
+                                    <span class="plus">+</span>
+                                    <p class="color-green">Donation</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Donation Statistics End -->
+
+</main>
+</html>

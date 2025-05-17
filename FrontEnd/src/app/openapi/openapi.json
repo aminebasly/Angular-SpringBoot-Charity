@@ -1,0 +1,2156 @@
+{
+    "openapi": "3.0.1",
+    "info": {
+      "title": "OpenAPI definition",
+      "version": "v0"
+    },
+    "servers": [
+      {
+        "url": "http://localhost:8081",
+        "description": "Generated server url"
+      }
+    ],
+    "paths": {
+      "/api/users/update/{id}": {
+        "put": {
+          "tags": [
+            "user-controller"
+          ],
+          "operationId": "updateUser",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          ],
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/User"
+                }
+              }
+            },
+            "required": true
+          },
+          "responses": {
+            "500": {
+              "description": "Internal Server Error",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorResponse"
+                  }
+                }
+              }
+            },
+            "400": {
+              "description": "Bad Request",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorResponse"
+                  }
+                }
+              }
+            },
+            "404": {
+              "description": "Not Found",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorResponse"
+                  }
+                }
+              }
+            },
+            "200": {
+              "description": "OK",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "$ref": "#/components/schemas/User"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/api/support-responses/update/{id}": {
+        "put": {
+          "tags": [
+            "support-response-controller"
+          ],
+          "operationId": "updateResponse",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          ],
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SupportResponse"
+                }
+              }
+            },
+            "required": true
+          },
+          "responses": {
+            "500": {
+              "description": "Internal Server Error",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorResponse"
+                  }
+                }
+              }
+            },
+            "400": {
+              "description": "Bad Request",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorResponse"
+                  }
+                }
+              }
+            },
+            "404": {
+              "description": "Not Found",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorResponse"
+                  }
+                }
+              }
+            },
+            "200": {
+              "description": "OK",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "$ref": "#/components/schemas/SupportResponse"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/api/services/{id}": {
+        "get": {
+          "tags": [
+            "provided-service-controller"
+          ],
+          "operationId": "getServiceById",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          ],
+          "responses": {
+            "500": {
+              "description": "Internal Server Error",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorResponse"
+                  }
+                }
+              }
+            },
+            "400": {
+              "description": "Bad Request",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorResponse"
+                  }
+                }
+              }
+            },
+            "404": {
+              "description": "Not Found",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorResponse"
+                  }
+                }
+              }
+            },
+            "200": {
+              "description": "OK",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ProvidedService"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "put": {
+          "tags": [
+            "provided-service-controller"
+          ],
+          "operationId": "updateService",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          ],
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProvidedService"
+                }
+              }
+            },
+            "required": true
+          },
+          "responses": {
+            "500": {
+              "description": "Internal Server Error",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorResponse"
+                  }
+                }
+              }
+            },
+            "400": {
+              "description": "Bad Request",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorResponse"
+                  }
+                }
+              }
+            },
+            "404": {
+              "description": "Not Found",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorResponse"
+                  }
+                }
+              }
+            },
+            "200": {
+              "description": "OK",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ProvidedService"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "delete": {
+          "tags": [
+            "provided-service-controller"
+          ],
+          "operationId": "deleteService",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          ],
+          "responses": {
+            "500": {
+              "description": "Internal Server Error",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorResponse"
+                  }
+                }
+              }
+            },
+            "400": {
+              "description": "Bad Request",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorResponse"
+                  }
+                }
+              }
+            },
+            "404": {
+              "description": "Not Found",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorResponse"
+                  }
+                }
+              }
+            },
+            "200": {
+              "description": "OK"
+            }
+          }
+        }
+      },
+      "/api/refugee-support/update/{id}": {
+        "put": {
+          "tags": [
+            "refugee-support-controller"
+          ],
+          "operationId": "updateRefugeeSupport",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          ],
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RefugeeSupport"
+                }
+              }
+            },
+            "required": true
+          },
+          "responses": {
+            "500": {
+              "description": "Internal Server Error",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorResponse"
+                  }
+                }
+              }
+            },
+            "400": {
+              "description": "Bad Request",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorResponse"
+                  }
+                }
+              }
+            },
+            "404": {
+              "description": "Not Found",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorResponse"
+                  }
+                }
+              }
+            },
+            "200": {
+              "description": "OK",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/RefugeeSupport"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/api/cases/{id}/status": {
+        "put": {
+          "tags": [
+            "case-controller"
+          ],
+          "operationId": "updateCaseStatus",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
+            },
+            {
+              "name": "status",
+              "in": "query",
+              "required": true,
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "responses": {
+            "500": {
+              "description": "Internal Server Error",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorResponse"
+                  }
+                }
+              }
+            },
+            "400": {
+              "description": "Bad Request",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorResponse"
+                  }
+                }
+              }
+            },
+            "404": {
+              "description": "Not Found",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorResponse"
+                  }
+                }
+              }
+            },
+            "200": {
+              "description": "OK",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Case"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/api/users/create": {
+        "post": {
+          "tags": [
+            "user-controller"
+          ],
+          "operationId": "createUser",
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/User"
+                }
+              }
+            },
+            "required": true
+          },
+          "responses": {
+            "500": {
+              "description": "Internal Server Error",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorResponse"
+                  }
+                }
+              }
+            },
+            "400": {
+              "description": "Bad Request",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorResponse"
+                  }
+                }
+              }
+            },
+            "404": {
+              "description": "Not Found",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorResponse"
+                  }
+                }
+              }
+            },
+            "200": {
+              "description": "OK",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "$ref": "#/components/schemas/User"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/api/support-responses/add/{refugeeSupportId}": {
+        "post": {
+          "tags": [
+            "support-response-controller"
+          ],
+          "operationId": "addResponse",
+          "parameters": [
+            {
+              "name": "refugeeSupportId",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          ],
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SupportResponse"
+                }
+              }
+            },
+            "required": true
+          },
+          "responses": {
+            "500": {
+              "description": "Internal Server Error",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorResponse"
+                  }
+                }
+              }
+            },
+            "400": {
+              "description": "Bad Request",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorResponse"
+                  }
+                }
+              }
+            },
+            "404": {
+              "description": "Not Found",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorResponse"
+                  }
+                }
+              }
+            },
+            "200": {
+              "description": "OK",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "$ref": "#/components/schemas/SupportResponse"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/api/services": {
+        "get": {
+          "tags": [
+            "provided-service-controller"
+          ],
+          "operationId": "getAllServices",
+          "responses": {
+            "500": {
+              "description": "Internal Server Error",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorResponse"
+                  }
+                }
+              }
+            },
+            "400": {
+              "description": "Bad Request",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorResponse"
+                  }
+                }
+              }
+            },
+            "404": {
+              "description": "Not Found",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorResponse"
+                  }
+                }
+              }
+            },
+            "200": {
+              "description": "OK",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/ProvidedService"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "post": {
+          "tags": [
+            "provided-service-controller"
+          ],
+          "operationId": "createService",
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProvidedService"
+                }
+              }
+            },
+            "required": true
+          },
+          "responses": {
+            "500": {
+              "description": "Internal Server Error",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorResponse"
+                  }
+                }
+              }
+            },
+            "400": {
+              "description": "Bad Request",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorResponse"
+                  }
+                }
+              }
+            },
+            "404": {
+              "description": "Not Found",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorResponse"
+                  }
+                }
+              }
+            },
+            "200": {
+              "description": "OK",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ProvidedService"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/api/refugee-support/create": {
+        "post": {
+          "tags": [
+            "refugee-support-controller"
+          ],
+          "operationId": "createRefugeeSupport",
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RefugeeSupport"
+                }
+              }
+            },
+            "required": true
+          },
+          "responses": {
+            "500": {
+              "description": "Internal Server Error",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorResponse"
+                  }
+                }
+              }
+            },
+            "400": {
+              "description": "Bad Request",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorResponse"
+                  }
+                }
+              }
+            },
+            "404": {
+              "description": "Not Found",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorResponse"
+                  }
+                }
+              }
+            },
+            "200": {
+              "description": "OK",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "$ref": "#/components/schemas/RefugeeSupport"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/api/cases/register": {
+        "post": {
+          "tags": [
+            "case-controller"
+          ],
+          "operationId": "registerCase",
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Case"
+                }
+              }
+            },
+            "required": true
+          },
+          "responses": {
+            "500": {
+              "description": "Internal Server Error",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorResponse"
+                  }
+                }
+              }
+            },
+            "400": {
+              "description": "Bad Request",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorResponse"
+                  }
+                }
+              }
+            },
+            "404": {
+              "description": "Not Found",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorResponse"
+                  }
+                }
+              }
+            },
+            "200": {
+              "description": "OK",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Case"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/api/associations": {
+        "get": {
+          "tags": [
+            "association-controller"
+          ],
+          "operationId": "getAllAssociations",
+          "responses": {
+            "500": {
+              "description": "Internal Server Error",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorResponse"
+                  }
+                }
+              }
+            },
+            "400": {
+              "description": "Bad Request",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorResponse"
+                  }
+                }
+              }
+            },
+            "404": {
+              "description": "Not Found",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorResponse"
+                  }
+                }
+              }
+            },
+            "200": {
+              "description": "OK",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/Association"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "post": {
+          "tags": [
+            "association-controller"
+          ],
+          "operationId": "createAssociation",
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Association"
+                }
+              }
+            },
+            "required": true
+          },
+          "responses": {
+            "500": {
+              "description": "Internal Server Error",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorResponse"
+                  }
+                }
+              }
+            },
+            "400": {
+              "description": "Bad Request",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorResponse"
+                  }
+                }
+              }
+            },
+            "404": {
+              "description": "Not Found",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorResponse"
+                  }
+                }
+              }
+            },
+            "200": {
+              "description": "OK",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Association"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/api/users/{id}": {
+        "get": {
+          "tags": [
+            "user-controller"
+          ],
+          "operationId": "getUserById",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          ],
+          "responses": {
+            "500": {
+              "description": "Internal Server Error",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorResponse"
+                  }
+                }
+              }
+            },
+            "400": {
+              "description": "Bad Request",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorResponse"
+                  }
+                }
+              }
+            },
+            "404": {
+              "description": "Not Found",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorResponse"
+                  }
+                }
+              }
+            },
+            "200": {
+              "description": "OK",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "$ref": "#/components/schemas/User"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/api/users/all": {
+        "get": {
+          "tags": [
+            "user-controller"
+          ],
+          "operationId": "getAllUsers",
+          "responses": {
+            "500": {
+              "description": "Internal Server Error",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorResponse"
+                  }
+                }
+              }
+            },
+            "400": {
+              "description": "Bad Request",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorResponse"
+                  }
+                }
+              }
+            },
+            "404": {
+              "description": "Not Found",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorResponse"
+                  }
+                }
+              }
+            },
+            "200": {
+              "description": "OK",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/User"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/api/support-responses/{id}": {
+        "get": {
+          "tags": [
+            "support-response-controller"
+          ],
+          "operationId": "getResponseById",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          ],
+          "responses": {
+            "500": {
+              "description": "Internal Server Error",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorResponse"
+                  }
+                }
+              }
+            },
+            "400": {
+              "description": "Bad Request",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorResponse"
+                  }
+                }
+              }
+            },
+            "404": {
+              "description": "Not Found",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorResponse"
+                  }
+                }
+              }
+            },
+            "200": {
+              "description": "OK",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "$ref": "#/components/schemas/SupportResponse"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/api/support-responses/refugee/{refugeeSupportId}": {
+        "get": {
+          "tags": [
+            "support-response-controller"
+          ],
+          "operationId": "getResponsesByRefugeeSupport",
+          "parameters": [
+            {
+              "name": "refugeeSupportId",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          ],
+          "responses": {
+            "500": {
+              "description": "Internal Server Error",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorResponse"
+                  }
+                }
+              }
+            },
+            "400": {
+              "description": "Bad Request",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorResponse"
+                  }
+                }
+              }
+            },
+            "404": {
+              "description": "Not Found",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorResponse"
+                  }
+                }
+              }
+            },
+            "200": {
+              "description": "OK",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/SupportResponse"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/api/support-responses/all": {
+        "get": {
+          "tags": [
+            "support-response-controller"
+          ],
+          "operationId": "getAllResponses",
+          "responses": {
+            "500": {
+              "description": "Internal Server Error",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorResponse"
+                  }
+                }
+              }
+            },
+            "400": {
+              "description": "Bad Request",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorResponse"
+                  }
+                }
+              }
+            },
+            "404": {
+              "description": "Not Found",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorResponse"
+                  }
+                }
+              }
+            },
+            "200": {
+              "description": "OK",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/SupportResponse"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/api/refugee-support/{id}": {
+        "get": {
+          "tags": [
+            "refugee-support-controller"
+          ],
+          "operationId": "getRefugeeSupportById",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          ],
+          "responses": {
+            "500": {
+              "description": "Internal Server Error",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorResponse"
+                  }
+                }
+              }
+            },
+            "400": {
+              "description": "Bad Request",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorResponse"
+                  }
+                }
+              }
+            },
+            "404": {
+              "description": "Not Found",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorResponse"
+                  }
+                }
+              }
+            },
+            "200": {
+              "description": "OK",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "$ref": "#/components/schemas/RefugeeSupport"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/api/refugee-support/status/{status}": {
+        "get": {
+          "tags": [
+            "refugee-support-controller"
+          ],
+          "operationId": "getRefugeeSupportsByStatus",
+          "parameters": [
+            {
+              "name": "status",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "responses": {
+            "500": {
+              "description": "Internal Server Error",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorResponse"
+                  }
+                }
+              }
+            },
+            "400": {
+              "description": "Bad Request",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorResponse"
+                  }
+                }
+              }
+            },
+            "404": {
+              "description": "Not Found",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorResponse"
+                  }
+                }
+              }
+            },
+            "200": {
+              "description": "OK",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/RefugeeSupport"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/api/refugee-support/all": {
+        "get": {
+          "tags": [
+            "refugee-support-controller"
+          ],
+          "operationId": "getAllRefugeeSupports",
+          "responses": {
+            "500": {
+              "description": "Internal Server Error",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorResponse"
+                  }
+                }
+              }
+            },
+            "400": {
+              "description": "Bad Request",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorResponse"
+                  }
+                }
+              }
+            },
+            "404": {
+              "description": "Not Found",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorResponse"
+                  }
+                }
+              }
+            },
+            "200": {
+              "description": "OK",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/RefugeeSupport"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/api/cases": {
+        "get": {
+          "tags": [
+            "case-controller"
+          ],
+          "operationId": "getAllCases",
+          "responses": {
+            "500": {
+              "description": "Internal Server Error",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorResponse"
+                  }
+                }
+              }
+            },
+            "400": {
+              "description": "Bad Request",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorResponse"
+                  }
+                }
+              }
+            },
+            "404": {
+              "description": "Not Found",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorResponse"
+                  }
+                }
+              }
+            },
+            "200": {
+              "description": "OK",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "type": "object"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/api/cases/{id}": {
+        "get": {
+          "tags": [
+            "case-controller"
+          ],
+          "operationId": "getCaseById",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          ],
+          "responses": {
+            "500": {
+              "description": "Internal Server Error",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorResponse"
+                  }
+                }
+              }
+            },
+            "400": {
+              "description": "Bad Request",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorResponse"
+                  }
+                }
+              }
+            },
+            "404": {
+              "description": "Not Found",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorResponse"
+                  }
+                }
+              }
+            },
+            "200": {
+              "description": "OK",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Case"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "delete": {
+          "tags": [
+            "case-controller"
+          ],
+          "operationId": "deleteCase",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          ],
+          "responses": {
+            "500": {
+              "description": "Internal Server Error",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorResponse"
+                  }
+                }
+              }
+            },
+            "400": {
+              "description": "Bad Request",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorResponse"
+                  }
+                }
+              }
+            },
+            "404": {
+              "description": "Not Found",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorResponse"
+                  }
+                }
+              }
+            },
+            "200": {
+              "description": "OK"
+            }
+          }
+        }
+      },
+      "/api/associations/{id}": {
+        "get": {
+          "tags": [
+            "association-controller"
+          ],
+          "operationId": "getAssociationById",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          ],
+          "responses": {
+            "500": {
+              "description": "Internal Server Error",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorResponse"
+                  }
+                }
+              }
+            },
+            "400": {
+              "description": "Bad Request",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorResponse"
+                  }
+                }
+              }
+            },
+            "404": {
+              "description": "Not Found",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorResponse"
+                  }
+                }
+              }
+            },
+            "200": {
+              "description": "OK",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Association"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "delete": {
+          "tags": [
+            "association-controller"
+          ],
+          "operationId": "deleteAssociation",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          ],
+          "responses": {
+            "500": {
+              "description": "Internal Server Error",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorResponse"
+                  }
+                }
+              }
+            },
+            "400": {
+              "description": "Bad Request",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorResponse"
+                  }
+                }
+              }
+            },
+            "404": {
+              "description": "Not Found",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorResponse"
+                  }
+                }
+              }
+            },
+            "200": {
+              "description": "OK"
+            }
+          }
+        }
+      },
+      "/api/users/delete/{id}": {
+        "delete": {
+          "tags": [
+            "user-controller"
+          ],
+          "operationId": "deleteUser",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          ],
+          "responses": {
+            "500": {
+              "description": "Internal Server Error",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorResponse"
+                  }
+                }
+              }
+            },
+            "400": {
+              "description": "Bad Request",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorResponse"
+                  }
+                }
+              }
+            },
+            "404": {
+              "description": "Not Found",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorResponse"
+                  }
+                }
+              }
+            },
+            "200": {
+              "description": "OK"
+            }
+          }
+        }
+      },
+      "/api/support-responses/delete/{id}": {
+        "delete": {
+          "tags": [
+            "support-response-controller"
+          ],
+          "operationId": "deleteResponse",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          ],
+          "responses": {
+            "500": {
+              "description": "Internal Server Error",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorResponse"
+                  }
+                }
+              }
+            },
+            "400": {
+              "description": "Bad Request",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorResponse"
+                  }
+                }
+              }
+            },
+            "404": {
+              "description": "Not Found",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorResponse"
+                  }
+                }
+              }
+            },
+            "200": {
+              "description": "OK"
+            }
+          }
+        }
+      },
+      "/api/refugee-support/delete/{id}": {
+        "delete": {
+          "tags": [
+            "refugee-support-controller"
+          ],
+          "operationId": "deleteRefugeeSupport",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          ],
+          "responses": {
+            "500": {
+              "description": "Internal Server Error",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorResponse"
+                  }
+                }
+              }
+            },
+            "400": {
+              "description": "Bad Request",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorResponse"
+                  }
+                }
+              }
+            },
+            "404": {
+              "description": "Not Found",
+              "content": {
+                "*/*": {
+                  "schema": {
+                    "$ref": "#/components/schemas/ErrorResponse"
+                  }
+                }
+              }
+            },
+            "200": {
+              "description": "OK"
+            }
+          }
+        }
+      }
+    },
+    "components": {
+      "schemas": {
+        "ErrorResponse": {
+          "type": "object",
+          "properties": {
+            "message": {
+              "type": "string"
+            },
+            "status": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        },
+        "Association": {
+          "type": "object",
+          "properties": {
+            "associationId": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "name": {
+              "type": "string"
+            },
+            "associationDescription": {
+              "type": "string"
+            },
+            "foundingDate": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "validated": {
+              "type": "boolean"
+            }
+          }
+        },
+        "User": {
+          "type": "object",
+          "properties": {
+            "userId": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "username": {
+              "type": "string"
+            },
+            "password": {
+              "type": "string"
+            },
+            "email": {
+              "type": "string"
+            },
+            "birthDate": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "role": {
+              "type": "string",
+              "enum": [
+                "ADMIN",
+                "VOLUNTEER",
+                "REFUGEE",
+                "MEMBER"
+              ]
+            },
+            "associations": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/Association"
+              }
+            }
+          }
+        },
+        "SupportResponse": {
+          "required": [
+            "agent",
+            "helpRequestResp",
+            "questionResp",
+            "responseDate"
+          ],
+          "type": "object",
+          "properties": {
+            "supportRespId": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "questionResp": {
+              "maxLength": 1000,
+              "minLength": 10,
+              "type": "string"
+            },
+            "helpRequestResp": {
+              "maxLength": 1000,
+              "minLength": 20,
+              "type": "string"
+            },
+            "shelterRequestResp": {
+              "maxLength": 500,
+              "minLength": 0,
+              "type": "string"
+            },
+            "responseDate": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "agent": {
+              "$ref": "#/components/schemas/User"
+            }
+          }
+        },
+        "Case": {
+          "required": [
+            "caseDate",
+            "caseDescription",
+            "caseStatus",
+            "identificationNumber",
+            "location",
+            "title"
+          ],
+          "type": "object",
+          "properties": {
+            "caseId": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "identificationNumber": {
+              "pattern": "^[A-Z]{2}\\d{6}$",
+              "type": "string"
+            },
+            "title": {
+              "maxLength": 100,
+              "minLength": 5,
+              "type": "string"
+            },
+            "caseDescription": {
+              "maxLength": 500,
+              "minLength": 10,
+              "type": "string"
+            },
+            "location": {
+              "type": "string"
+            },
+            "caseDate": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "caseStatus": {
+              "type": "string",
+              "enum": [
+                "PENDING",
+                "IN_PROGRESS",
+                "RESOLVED"
+              ]
+            },
+            "testimonial": {
+              "$ref": "#/components/schemas/Testimonial"
+            },
+            "association": {
+              "$ref": "#/components/schemas/Association"
+            }
+          }
+        },
+        "Document": {
+          "type": "object",
+          "properties": {
+            "documentId": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "name": {
+              "type": "string"
+            },
+            "type": {
+              "type": "string"
+            },
+            "path": {
+              "type": "string"
+            },
+            "verified": {
+              "type": "boolean"
+            },
+            "createdDate": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "refugeeSupport": {
+              "$ref": "#/components/schemas/RefugeeSupport"
+            },
+            "caseRef": {
+              "$ref": "#/components/schemas/Case"
+            },
+            "fileName": {
+              "type": "string",
+              "writeOnly": true
+            },
+            "fileType": {
+              "type": "string",
+              "writeOnly": true
+            },
+            "data": {
+              "type": "array",
+              "writeOnly": true,
+              "items": {
+                "type": "string",
+                "format": "byte"
+              }
+            }
+          }
+        },
+        "ProvidedService": {
+          "type": "object",
+          "properties": {
+            "serviceId": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "name": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "refugeeSupports": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/RefugeeSupport"
+              }
+            }
+          }
+        },
+        "RefugeeSupport": {
+          "required": [
+            "helpRequest",
+            "question",
+            "reqStatus",
+            "services"
+          ],
+          "type": "object",
+          "properties": {
+            "supportId": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "question": {
+              "maxLength": 500,
+              "minLength": 10,
+              "type": "string"
+            },
+            "helpRequest": {
+              "maxLength": 1000,
+              "minLength": 20,
+              "type": "string"
+            },
+            "shelterRequest": {
+              "maxLength": 500,
+              "minLength": 0,
+              "type": "string"
+            },
+            "reqStatus": {
+              "type": "string",
+              "enum": [
+                "PENDING",
+                "ANSWERED"
+              ]
+            },
+            "documents": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/Document"
+              }
+            },
+            "services": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/ProvidedService"
+              }
+            }
+          }
+        },
+        "Testimonial": {
+          "type": "object",
+          "properties": {
+            "testimId": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "content": {
+              "type": "string"
+            },
+            "datePost": {
+              "type": "string",
+              "format": "date-time"
+            }
+          }
+        }
+      }
+    }
+  }

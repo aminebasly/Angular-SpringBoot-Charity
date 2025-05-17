@@ -1,0 +1,88 @@
+@import '@angular/material/prebuilt-themes/indigo-pink.css'; /* Reset Material background */
+html, body {
+    background-color: white !important;
+    color: black !important;
+  }
+
+  mat-card {
+    background-color: white !important;
+    color: black !important;
+    box-shadow: none !important;
+  }
+
+  mat-form-field {
+    color: black !important;
+  }
+
+  mat-input, input, textarea {
+    background-color: white !important;
+    color: black !important;
+  }
+
+  button.mat-mdc-raised-button {
+    background-color: black !important;
+    color: white !important;
+  }
+
+  a {
+    color: black !important;
+  }
+/* Reset all text colors */
+body, h1, h2, h3, h4, h5, h6, p, label, a, span, mat-card-title, mat-card-subtitle {
+  color: black !important;
+}
+
+/* Ensure input fields have visible text */
+mat-form-field, input, textarea {
+  color: black !important;
+}
+
+::placeholder {
+  color: rgba(0, 0, 0, 0.6) !important; /* Light gray placeholder */
+}
+  /* Fix Button Styling */
+.mat-mdc-button,
+.mat-mdc-raised-button,
+.mat-mdc-unelevated-button {
+  color: white !important; /* Ensures text is visible */
+  background: black !important; /* Change background color */
+  font-weight: bold;
+  font-size: 16px;
+  text-transform: none; /* Keep normal capitalization */
+}
+
+/* Ensure Button Text is Always Visible */
+.mat-mdc-button span,
+.mat-mdc-raised-button span,
+.mat-mdc-unelevated-button span {
+  color: white !important;
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.event-container {
+  margin-top: 50px; /* Adjust this value for more or less space */
+  padding: 20px;
+}
+
+app-header-front {
+  margin-bottom: 10px; /* Reduce space below header */
+  display: block;
+  width: 100%;
+}
+app-footer-front {
+  margin-top: auto; /* Ensures the footer moves to the bottom */
+  display: block;
+  width: 100%;
+  background-color: #333; /* Adjust as needed */
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+

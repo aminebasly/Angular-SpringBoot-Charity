@@ -1,0 +1,104 @@
+<!-- src/app/components/user-list/user-list.component.html -->
+<div class="container">
+    <h1>User List</h1>
+    <div class="controls">
+        <div class="search-container">
+            <input type="text"
+                   [(ngModel)]="searchQuery"
+                   (keyup.enter)="searchUsers()"
+                   placeholder="Search users...">
+            <button (click)="searchUsers()">Search</button>
+            <button type="button" (click)="loadUsers()">Reset</button>
+        </div>
+    </div>
+
+    <div *ngIf="loading" class="error">Loading users...</div>
+    <div *ngIf="errorMessage" class="error">{{errorMessage}}</div>
+
+    <table class="event-table" *ngIf="!loading && users.length > 0">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Username</th>
+            <th>Email</th>
+            <th>Role</th>
+            <th>Birth Date</th>
+            <th>Points</th>
+            <th>Badges</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let user of users">
+            <td>{{user.userId}}</td>
+            <td>{{user.username}}</td>
+            <td>{{user.email}}</td>
+            <td>{{user.role}}</td>
+            <td>{{user.birthDate | date:'yyyy-MM-dd'}}</td>
+            <td>{{user.points}}</td>
+            <td>{{user.badges}}</td>
+            <td>
+                <button class="update-btn" (click)="openEditModal(user)">Edit</button>
+                <button class="delete-btn" (click)="deleteUser(user.userId)">Delete</button>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+    <p *ngIf="!loading && users.length === 0" class="no-users">No users found</p>
+
+    <!-- Add/Edit Modal -->
+    <div class="modal" *ngIf="editMode || addMode" (click)="cancelOperation()">
+        <div class="modal-content" (click)="$event.stopPropagation()">
+            <h2>{{editMode ? 'Edit User' : 'Add User'}}</h2>
+            <form (ngSubmit)="saveUser()" *ngIf="selectedUser">
+                <div>
+                    <label for="username">Username</label>
+                    <input type="text"
+                           id="username"
+                           [(ngModel)]="selectedUser.username"
+                           name="username"
+                           required>
+                </div>
+                <div>
+                    <label for="email">Email</label>
+                    <input type="email"
+                           id="email"
+                           [(ngModel)]="selectedUser.email"
+                           name="email"
+                           required>
+                    <small *ngIf="selectedUser.email && !isEmailValid()">Invalid email format</small>
+                </div>
+                <div *ngIf="addMode">
+                    <label for="password">Password</label>
+                    <input type="password"
+                           id="password"
+                           [(ngModel)]="selectedUser.password"
+                           name="password"
+                           required>
+                </div>
+                <div>
+                    <label for="role">Role</label>
+                    <select id="role"
+                            [(ngModel)]="selectedUser.role"
+                            name="role"
+                            required>
+                        <option *ngFor="let role of roles" [value]="role">{{role}}</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="birthDate">Birth Date</label>
+                    <input type="date"
+                           id="birthDate"
+                           [(ngModel)]="selectedUser.birthDate"
+                           name="birthDate"
+                           required>
+                </div>
+                <div class="modal-actions">
+                    <button type="submit">{{editMode ? 'Update' : 'Save'}}</button>
+                    <button type="button" (click)="cancelOperation()">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

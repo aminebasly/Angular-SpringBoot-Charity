@@ -1,0 +1,24 @@
+<div class="stats-card">
+    <h2 class="stats-title">Event Statistics</h2>
+    <div class="stats-content">
+
+        <!-- KPI for Total Events -->
+        <div class="kpi-box">
+            <h3 class="kpi-title">Total Events</h3>
+            <p class="kpi-number">{{ totalEvents }}</p>
+        </div>
+
+        <!-- KPI for Participation Rate -->
+        <div class="kpi-box">
+            <h3 class="kpi-title">Participation Rate</h3>
+            <p class="kpi-number">{{ participationRate }}%</p>
+        </div>
+        <div>
+            <canvas baseChart
+                    [data]="chartData"
+                    chartType="pie">
+            </canvas>
+        </div>
+
+    </div>
+</div>

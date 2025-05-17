@@ -1,0 +1,65 @@
+/* Navbar styling */
+.main-header.navbar {
+    background: #ffffff;
+    border-bottom: 1px solid #dee2e6;
+    padding: 0.5rem 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+/* Left navbar links */
+.navbar-nav .nav-link {
+    color: #343a40;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    transition: color 0.3s ease, background 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #17a2b8;
+    background: rgba(0, 0, 0, 0.05);
+    border-radius: 4px;
+}
+
+/* Menu toggle button */
+.nav-link[data-widget="pushmenu"] {
+    font-size: 1.2rem;
+    color: #495057;
+}
+
+.nav-link[data-widget="pushmenu"]:hover {
+    color: #17a2b8;
+}
+
+/* Right navbar user panel */
+.navbar-nav.ml-auto .user-panel {
+    margin: 0;
+    padding: 0;
+}
+
+.navbar-nav.ml-auto .user-panel .info {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-nav.ml-auto .username {
+    font-size: 1.5rem; /* Larger font size */
+    font-weight: 600;
+    color: #343a40;
+    text-transform: capitalize;
+    padding: 0.5rem 1rem;
+    transition: color 0.3s ease, background 0.3s ease;
+}
+
+.navbar-nav.ml-auto .username:hover {
+    color: #17a2b8;
+    background: rgba(0, 0, 0, 0.05);
+    border-radius: 4px;
+    text-decoration: none;
+}
+
+/* Responsive adjustments */
+@media (max-width: 576px) {
+    .navbar-nav.ml-auto .username {
+        font-size: 1.2rem; /* Slightly smaller on mobile */
+    }
+}

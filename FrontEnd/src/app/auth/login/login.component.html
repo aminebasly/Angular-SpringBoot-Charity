@@ -1,0 +1,114 @@
+<div class="cont" [class.s--signup]="isSignupMode">
+    <div class="form sign-in">
+        <h2>Welcome</h2>
+        <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
+            <label>
+                <span>Email</span>
+                <input type="email" formControlName="email" placeholder="Enter your email" />
+                <small *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched">
+                    Valid email is required.
+                </small>
+            </label>
+
+            <label>
+                <span>Password</span>
+                <input type="password" formControlName="password" placeholder="Enter your password" />
+                <small *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched">
+                    Password is required.
+                </small>
+            </label>
+
+            <p class="forgot-pass">Forgot password?</p>
+            <button type="submit" class="submit" [disabled]="!loginForm.valid">Sign In</button>
+        </form>
+    </div>
+
+    <div class="sub-cont">
+        <div class="img">
+            <div class="img__text m--up">
+                <h3 style="color: white;">Don't have an account? Please Sign up!</h3>
+            </div>
+            <div class="img__text m--in">
+                <h3 style="color: white;">If you already have an account, just sign in.</h3>
+            </div>
+
+            <div class="img__btn" (click)="toggleSignup()">
+                <span class="m--up" style="color: white;">Sign Up</span>
+                <span class="m--in" style="color: white;">Sign In</span>
+            </div>
+        </div>
+
+        <div class="form sign-up">
+            <h2>Create your Account</h2>
+            <form [formGroup]="registerForm" (ngSubmit)="onRegister()">
+                <label>
+                    <span>Username</span>
+                    <input type="text" formControlName="username" placeholder="Enter your username" />
+                    <small *ngIf="registerForm.get('username')?.invalid && registerForm.get('username')?.touched">
+                        Username is required.
+                    </small>
+                </label>
+
+                <label>
+                    <span>Email</span>
+                    <input type="email" formControlName="email" placeholder="Enter your email" />
+                    <small *ngIf="registerForm.get('email')?.invalid && registerForm.get('email')?.touched">
+                        Valid email is required.
+                    </small>
+                </label>
+
+                <label>
+                    <span>Password</span>
+                    <input type="password" formControlName="password" placeholder="Create a password" />
+                    <small *ngIf="registerForm.get('password')?.errors?.['minlength'] && registerForm.get('password')?.touched">
+                        Password must be at least 6 characters.
+                    </small>
+                    <small *ngIf="registerForm.get('password')?.errors?.['pattern'] && registerForm.get('password')?.touched">
+                        Must include uppercase, number, and symbol.
+                    </small>
+                </label>
+
+                <label>
+                    <span>Role</span>
+                    <select formControlName="role" class="custom-select">
+                        <option value="">Select Role</option>
+                        <option value="VOLUNTEER">Volunteer</option>
+                        <option value="REFUGEE">Refugee</option>
+                        <option value="MEMBER">Member</option>
+                    </select>
+                    <small *ngIf="registerForm.get('role')?.invalid && registerForm.get('role')?.touched">
+                        Role is required.
+                    </small>
+                </label>
+
+                <button type="submit" class="submit" [disabled]="!registerForm.valid">Sign Up</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Activation Popup -->
+    <div class="popup-overlay" *ngIf="activationPopup">
+        <div class="popup-box">
+            <h2 *ngIf="!activationLoading && !activationSuccess">Activate Your Account</h2>
+
+            <ng-container *ngIf="!activationLoading && !activationSuccess">
+                <p>Enter the 6-digit activation token you received:</p>
+                <input
+                        type="text"
+                        maxlength="6"
+                        [(ngModel)]="activationToken"
+                        placeholder="Enter token"
+                        class="token-input"
+                />
+                <button (click)="activateAccount()">Activate</button>
+            </ng-container>
+
+            <div *ngIf="activationLoading" class="loading-text">Activating your account...</div>
+            <div *ngIf="activationSuccess" class="success-text">Account activated! Redirecting...</div>
+
+            <div *ngIf="errorMessage && !activationLoading && !activationSuccess" class="error-text">
+                {{ errorMessage }}
+            </div>
+        </div>
+    </div>
+</div>

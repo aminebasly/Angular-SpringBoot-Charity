@@ -1,0 +1,116 @@
+    <!-- event-list.component.html -->
+<div class="container event-container">
+    <h1>Events List</h1>
+    <div class="error" *ngIf="errorMessage">{{ errorMessage }}</div>
+    <div class="search-container">
+        <input type="text" [(ngModel)]="searchQuery" (keyup.enter)="searchEvents()" placeholder="Search events..." />
+        <button (click)="searchEvents()">Search</button>
+        <button type="button" (click)="loadEvents()">Reset</button> <!-- Renamed for clarity -->
+    </div>
+    <table class="event-table" *ngIf="events.length > 0; else noEvents">
+        <thead>
+        <tr>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Date</th>
+            <th>Category</th>
+            <th>Location</th>
+            
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let event of events">
+            <td>{{ event.eventTitle }}</td>
+            <td>{{ event.eventDescription || 'N/A' }}</td>
+            <td>{{ event.eventDate || 'N/A' }}</td>
+            <td>{{ event.category || 'N/A' }}</td>
+            <td>{{ event.eventLocation || 'N/A' }}</td>
+            
+            <td>
+                <button class="update-btn" (click)="openModal(event)">Edit</button>
+                <button class="delete-btn" (click)="deleteEvent(event.eventId!)">Delete</button>
+                <button (click)="addParticipation(event.eventTitle)">Participate</button>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <!-- ✅ Move pagination here -->
+    <div class="pagination-container" *ngIf="events.length > 0">
+        <button class="pagination-btn" (click)="previousPage()" [disabled]="currentPage === 0">
+            <span class="pagination-text">Previous</span>
+        </button>
+        <span class="pagination-info">Page {{ currentPage + 1 }} / {{ totalPages }}</span>
+        <button class="pagination-btn" (click)="nextPage()" [disabled]="currentPage + 1 === totalPages">
+            <span class="pagination-text">Next</span>
+        </button>
+    </div>
+    <ng-template #noEvents>
+        <p>No events available.</p>
+    </ng-template>
+   <button class="add-btn" (click)="openModal()">Add Event</button>
+    <div class="modal" *ngIf="isModalOpen">
+        <div class="modal-content">
+            <h2>{{ isEditMode ? 'Edit Event' : 'Add New Event' }}</h2>
+            <form [formGroup]="eventForm" (ngSubmit)="isEditMode ? updateEvent() : createEvent()">
+                <div>
+                    <label for="title">Title:</label>
+                    <input id="title" formControlName="eventTitle" placeholder="Event Title" />
+                    <small *ngIf="eventForm.get('eventTitle')?.invalid && eventForm.get('eventTitle')?.touched">
+                        Title is required.
+                    </small>
+                </div>
+                <div>
+                    <label for="description">Description:</label>
+                    <input id="description" formControlName="eventDescription" placeholder="Description" />
+                    <small *ngIf="eventForm.get('eventDescription')?.invalid && eventForm.get('eventDescription')?.touched">
+                        Description is required and must be at least 20 characters.
+                    </small>
+                </div>
+                <div>
+                    <label for="date">Date:</label>
+                    <input id="date" formControlName="eventDate" type="date" />
+                    <small *ngIf="eventForm.get('eventDate')?.invalid && eventForm.get('eventDate')?.touched">
+                        A future date is required.
+                    </small>
+                </div>
+                <div>
+                    <label for="category">Category:</label>
+                    <select id="category" formControlName="category">
+                        <option value="" disabled selected>Select a category</option>
+                        <option value="SHOW">SHOW</option>
+                        <option value="PARTY">PARTY</option>
+                        <option value="EXCURSION">EXCURSION</option>
+                        <option value="FORUM">FORUM</option>
+                        <option value="SPORT">SPORT</option>
+                    </select>
+                    <small *ngIf="eventForm.get('category')?.invalid && eventForm.get('category')?.touched">
+                        Category is required.
+                    </small>
+                </div>
+
+                <div>
+                    <label for="location">Location:</label>
+                    <input id="location" formControlName="eventLocation" placeholder="Location" />
+                    <small *ngIf="eventForm.get('eventLocation')?.invalid && eventForm.get('eventLocation')?.touched">
+                        Location is required.
+                    </small>
+                </div>
+                <div>
+                    <label for="places">Places:</label>
+                    <input id="places" formControlName="places" type="number" placeholder="Number of places" min="1" />
+                    <small *ngIf="eventForm.get('places')?.invalid && eventForm.get('places')?.touched">
+                        Number of places is required and must be at least 1.
+                    </small>
+                </div>
+                <div class="modal-actions">
+                    <button type="submit" [disabled]="eventForm.invalid">{{ isEditMode ? 'Update' : 'Submit' }}</button>
+                    <button type="button" (click)="closeModal()">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+    
+
+

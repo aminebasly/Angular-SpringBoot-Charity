@@ -1,0 +1,23 @@
+.full-page {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.main-content {
+    flex: 1 0 auto;
+    padding-top: -20px; /* Negative padding to pull content up (use cautiously) */
+    padding-bottom: 20px;
+    margin-top: -20px; /* Adjust based on header height */
+}
+
+app-footer-front {
+    flex-shrink: 0;
+}
+
+/* Ensure the container inherits proper spacing */
+.container {
+    padding: 0px; /* Match event-list.component.css */
+    max-width: 1200px;
+    margin: 0 auto;
+}

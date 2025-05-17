@@ -1,0 +1,74 @@
+<div class="refugee-support-container">
+    <!-- Form to add a new RefugeeSupport -->
+    <div class="add-support-form">
+        <h2>Add a Support Request</h2>
+        <form #f="ngForm" (ngSubmit)="addRefugeeSupport()" novalidate>
+            <div>
+                <label for="question">Question</label>
+                <input id="question" 
+       [(ngModel)]="newRefugeeSupport.question" 
+       name="question" 
+       required 
+       placeholder="Do you need any help?" />
+            </div>
+            
+            <div>
+                <label for="helpRequest">Help Request</label>
+                <input id="helpRequest" 
+                       [(ngModel)]="newRefugeeSupport.helpRequest" 
+                       name="helpRequest" 
+                       required />
+            </div>
+            
+            <div>
+                <label for="shelterRequest">Shelter Request</label>
+                <input id="shelterRequest" 
+                       [(ngModel)]="newRefugeeSupport.shelterRequest" 
+                       name="shelterRequest" />
+            </div>
+            
+            <div>
+                <label for="reqStatus">Status</label>
+                <select id="reqStatus" 
+                        [(ngModel)]="newRefugeeSupport.reqStatus" 
+                        (ngModelChange)="onStatusChange($event.target.value)" 
+                        name="reqStatus" required>
+                    <option value="PENDING">Pending</option>
+                    <option value="ANSWERED">Answered</option>
+                </select>
+            </div>
+            
+            <button type="submit" [disabled]="f.invalid">Add</button>
+        </form>
+    </div>
+
+    <!-- List of support requests -->
+    <div class="support-list">
+        <h2>List of Support Requests</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Question</th>
+                    <th>Help Request</th>
+                    <th>Shelter Request</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let support of refugeeSupports">
+                    <td>{{ support.supportId }}</td>
+                    <td>{{ support.question }}</td>
+                    <td>{{ support.helpRequest }}</td>
+                    <td>{{ support.shelterRequest }}</td>
+                    <td>{{ support.reqStatus }}</td>
+                    <td>
+                        <button *ngIf="support.supportId" (click)="updateRefugeeSupportStatus(support.supportId, 'ANSWERED')">Respond</button>
+                        <button *ngIf="support.supportId" (click)="deleteRefugeeSupport(support.supportId)">Delete</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

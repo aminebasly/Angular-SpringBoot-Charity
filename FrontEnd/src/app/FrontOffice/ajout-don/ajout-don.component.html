@@ -1,0 +1,89 @@
+<div class="event-container">
+    <div class="event-card donation-card">
+        <div class="donation-content">
+            <div class="image-container">
+                <img
+                        src="assets/FrontOffice/assets/img/png-clipart-brand-line-logo-heart-donation-logo-twitch-love-text-removebg-preview.png"
+                        alt="Donation Logo"
+                        class="donation-logo">
+            </div>
+            <div class="form-container">
+                <h2 class="event-title">Add Your Donation</h2>
+                <form (ngSubmit)="submitDonation()" #donForm="ngForm">
+                    <!-- Title -->
+                    <div class="form-group">
+                        <label for="title" class="event-title">Title:</label>
+                        <input
+                                type="text"
+                                id="title"
+                                [(ngModel)]="donation.donTitle"
+                                name="donTitle"
+                                class="form-input"
+                                required>
+                    </div>
+
+                    <!-- Description -->
+                    <div class="form-group">
+                        <label for="description" class="event-title">Description:</label>
+                        <input
+                                type="text"
+                                id="description"
+                                [(ngModel)]="donation.donDescription"
+                                name="donDescription"
+                                class="form-input"
+                                required>
+                    </div>
+
+                    <!-- Date -->
+                    <div class="form-group">
+                        <label for="date" class="event-title">Date:</label>
+                        <input
+                                type="date"
+                                id="date"
+                                [(ngModel)]="donation.donDate"
+                                name="donDate"
+                                class="form-input"
+                                required>
+                    </div>
+
+                    <!-- Upload Image -->
+                    <div class="form-group">
+                        <label for="image" class="event-title">Upload Image:</label>
+                        <input
+                                type="file"
+                                id="image"
+                                (change)="onFileChange($event)"
+                                accept="image/*"
+                                class="form-input file-input">
+                    </div>
+
+                    <!-- Type -->
+                    <div class="form-group">
+                        <label for="type" class="event-title">Type:</label>
+                        <select
+                                id="type"
+                                [(ngModel)]="donation.donType"
+                                name="donType"
+                                class="form-input"
+                                required>
+                            <option value="MONEY">Money</option>
+                            <option value="FOOD">Food</option>
+                            <option value="CLOTHES">Clothes</option>
+                        </select>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <div class="card-actions">
+                        <button
+                                type="submit"
+                                [disabled]="donForm.invalid"
+                                class="add-btn">
+                            Add Donation
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+

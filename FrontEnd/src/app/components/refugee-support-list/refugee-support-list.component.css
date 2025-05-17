@@ -1,0 +1,125 @@
+/* Style général */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f8f9fa;
+    color: #002147;
+    margin: 0;
+    padding: 0;
+}
+
+/* Conteneur principal */
+.refugee-support-container {
+    width: 80%;
+    margin: auto;
+    padding: 20px;
+    background: #fff;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+/* Titre */
+h2 {
+    text-align: center;
+    color: #002147;
+    margin-bottom: 20px;
+}
+
+/* Formulaire d'ajout */
+.add-support-form {
+    background: #e8f5e9;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.add-support-form label {
+    font-weight: bold;
+    color: #002147;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.add-support-form input, 
+.add-support-form select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.add-support-form button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    display: block;
+    margin: auto;
+}
+
+.add-support-form button:disabled {
+    background-color: #b0bec5;
+    cursor: not-allowed;
+}
+
+.add-support-form button:hover:not(:disabled) {
+    background-color: #0056b3;
+}
+
+/* Liste des demandes de soutien */
+.support-list {
+    overflow-x: auto;
+}
+
+.support-list table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.support-list th, .support-list td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.support-list th {
+    background-color: #002147;
+    color: white;
+}
+
+.support-list tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Boutons d'action */
+button {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-right: 5px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    opacity: 0.8;
+}
+
+button:nth-child(1) { /* Répondre */
+    background-color: #17a2b8;
+    color: white;
+}
+
+button:nth-child(2) { /* Supprimer */
+    background-color: #dc3545;
+    color: white;
+}

@@ -1,0 +1,9 @@
+/* app-header-front.component.css */
+:host {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    height: 60px; /* Adjust to your header's intended height */
+}
+.header-right-btn .header-btn {
+    background-color: #e1c4a0 !important;
+}

@@ -1,0 +1,148 @@
+/* Style général */
+body {
+  font-family: "Arial", sans-serif;
+  background-color: #f8f9fa;
+  color: #002147;
+  margin: 0;
+  padding: 0;
+}
+
+/* Conteneur principal */
+.case-list-container {
+  width: 80%;
+  margin: auto;
+  padding: 20px;
+  background: #fff;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+/* Titre */
+h2 {
+  text-align: center;
+  color: #002147;
+  margin-bottom: 20px;
+}
+
+/* Formulaire d'ajout */
+.add-case-form {
+  background: #e3f2fd;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.add-case-form label {
+  font-weight: bold;
+  color: #002147;
+}
+
+.add-case-form input,
+.add-case-form textarea,
+.add-case-form select {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.add-case-form button {
+  background-color: #00c774;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  display: block;
+  margin: auto;
+}
+
+.add-case-form button:hover {
+  background-color: #009d5e;
+}
+
+/* Tableau des cas */
+.case-list {
+  overflow-x: auto;
+}
+
+.case-list table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.case-list th,
+.case-list td {
+  padding: 15px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.case-list th {
+  background-color: #002147;
+  color: white;
+}
+
+.case-list tr:hover {
+  background-color: #f1f1f1;
+}
+
+/* Boutons d'action */
+button {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  margin-right: 5px;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+button:nth-child(1) {
+  /* Commencer */
+  background-color: #ffc107;
+  color: black;
+}
+
+button:nth-child(2) {
+  /* Résoudre */
+  background-color: #28a745;
+  color: white;
+}
+
+button:nth-child(3) {
+  /* Supprimer */
+  background-color: #dc3545;
+  color: white;
+}
+.refuge-info {
+  margin-top: 1rem;
+  padding: 0.75rem;
+  background-color: #f0f8ff;
+  border: 1px solid #d0e0f0;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+}
+
+.refuge-label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.refuge-label input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+}

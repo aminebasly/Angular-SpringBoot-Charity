@@ -1,0 +1,35 @@
+<div class="container mt-4">
+    <div class="card shadow-sm">
+        <div class="card-header bg-primary text-white">
+            <h4 class="mb-0">Add Refuge Center</h4>
+        </div>
+        <div class="card-body">
+            <form (ngSubmit)="submitForm()" #refugeForm="ngForm">
+                <!-- Name -->
+                <div class="mb-3">
+                    <label for="name" class="form-label">Name</label>
+                    <input id="name" name="name" [(ngModel)]="refugeCenter.name" required class="form-control"
+                        placeholder="Enter refuge center name" />
+                </div>
+
+                <!-- Capacity -->
+                <div class="mb-3">
+                    <label for="capacity" class="form-label">Capacity</label>
+                    <input id="capacity" name="capacity" type="number" [(ngModel)]="refugeCenter.capacity" required
+                        min="1" class="form-control" placeholder="Enter maximum capacity" />
+                </div>
+
+                <!-- Location -->
+                <div class="mb-3">
+                    <label for="location" class="form-label">Location</label>
+                    <input id="location" name="location" [(ngModel)]="refugeCenter.location" required
+                        class="form-control" placeholder="Enter location" />
+                </div>
+
+                <button type="submit" [disabled]="!refugeForm.form.valid" class="btn btn-success">
+                    Add Center
+                </button>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,337 @@
+
+h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 10px;
+    margin-top: 0;
+}
+
+.error {
+    color: red;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.event-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 0px;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.event-table th,
+.event-table td {
+    padding: 10px 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.event-table th {
+    background-color: #f4f4f4;
+    font-weight: bold;
+    color: #555;
+}
+
+.event-table tr:hover {
+    background-color: #f9f9f9;
+}
+
+@media (max-width: 768px) {
+    .event-table {
+        display: block;
+        overflow-x: auto;
+    }
+}
+
+p {
+    text-align: center;
+    color: #666;
+    margin-top: 10px;
+}
+
+.add-btn {
+    display: block;
+    margin: 15px auto 10px;
+    padding: 8px 16px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.add-btn:hover {
+    background-color: #218838;
+}
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 500px;
+}
+
+.modal-content h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.modal-content form div {
+    margin-bottom: 12px;
+}
+
+.modal-content label {
+    font-weight: bold;
+    color: #555;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.modal-content input {
+    padding: 6px;
+    width: 100%;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.modal-content small {
+    color: red;
+    font-size: 0.85rem;
+}
+
+.modal-actions {
+    display: flex;
+    gap: 8px;
+    justify-content: flex-end;
+}
+
+.modal-actions button {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.modal-actions button[type="submit"] {
+    background-color: #007bff;
+    color: white;
+}
+
+.modal-actions button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+.modal-actions button[type="submit"]:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.modal-actions button[type="button"] {
+    background-color: #dc3545;
+    color: white;
+}
+
+.modal-actions button[type="button"]:hover {
+    background-color: #c82333;
+}
+
+/* event-list.component.css */
+.update-btn {
+    background-color: green;
+    display: inline-block;
+    margin: 5px;
+    padding: 6px 12px;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.delete-btn {
+    background-color: red;
+    display: inline-block;
+    margin: 5px;
+    padding: 6px 12px;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.search-container {
+    margin: 10px 0;
+    text-align: center;
+}
+
+.search-container input {
+    padding: 6px;
+    width: 200px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.search-container button {
+    padding: 6px 12px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: 5px;
+}
+
+.search-container button:hover {
+    background-color: #0056b3;
+}
+
+/* Target the Reset button in search-container specifically */
+.search-container button[type="button"] {
+    background-color: #dc3545;
+    margin-left: 5px;
+}
+
+.search-container button[type="button"]:hover {
+    background-color: #c82333;
+}
+
+
+/* Override to ensure no unwanted top margin */
+.container > *:first-child {
+    margin-top: 0 !important;
+}
+.stats-card {
+    background-color: #ffffff;
+    border-radius: 16px;
+    padding: 30px;
+    margin-top: 40px;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.stats-title {
+    font-size: 28px;
+    margin-bottom: 24px;
+    text-align: center;
+    color: #1f2937;
+    font-weight: 600;
+}
+
+.stats-content {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    align-items: center;
+}
+
+.kpi-box {
+    background-color: #f3f4f6;
+    padding: 24px 40px;
+    border-radius: 12px;
+    text-align: center;
+    min-width: 200px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04);
+}
+
+.kpi-title {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: #374151;
+}
+
+.kpi-number {
+    font-size: 32px;
+    font-weight: bold;
+    color: #10b981;
+}
+
+.chart-wrapper {
+    width: 100%;
+    max-width: 500px;
+    background-color: #f9fafb;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.chart-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.chart-box {
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 300px; /* 👈 makes it smaller */
+    text-align: center;
+}
+
+.chart-title {
+    margin-bottom: 20px;
+    font-size: 18px;
+    color: #333;
+}
+
+canvas {
+    max-width: 250px; /* 👈 makes the pie chart itself smaller */
+    max-height: 250px;
+}
+.pagination-container {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 10px;
+    gap: 15px;
+    padding: 10px 20px;
+    background-color: rgba(0, 0, 0, 0); /* Maintain transparency if desired */
+    border-radius: 10px;
+}
+
+
+.pagination-btn {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 15px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.pagination-btn:hover {
+    background-color: #45a049;
+}
+
+.pagination-btn:disabled {
+    background-color: #ddd;
+    cursor: not-allowed;
+}
+
+.pagination-info {
+    font-size: 16px;
+    color: white;
+    margin: 0 10px;
+}
+
+

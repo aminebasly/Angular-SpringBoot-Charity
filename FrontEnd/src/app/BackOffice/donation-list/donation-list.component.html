@@ -1,0 +1,53 @@
+<h2 class="table-title">Donation List</h2>
+<div class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource" class="mat-table">
+      
+      <!-- ID Column -->
+      <ng-container matColumnDef="donationId">
+        <th mat-header-cell *matHeaderCellDef> ID </th>
+        <td mat-cell *matCellDef="let element"> {{element.donationId}} </td>
+      </ng-container>
+  
+      <!-- Title Column -->
+      <ng-container matColumnDef="donTitle">
+        <th mat-header-cell *matHeaderCellDef> Title </th>
+        <td mat-cell *matCellDef="let element"> {{element.donTitle}} </td>
+      </ng-container>
+  
+      <!-- Description Column -->
+      <ng-container matColumnDef="donDescription">
+        <th mat-header-cell *matHeaderCellDef> Description </th>
+        <td mat-cell *matCellDef="let element"> {{element.donDescription}} </td>
+      </ng-container>
+  
+      <!-- Type Column -->
+      <ng-container matColumnDef="donType">
+        <th mat-header-cell *matHeaderCellDef> Type </th>
+        <td mat-cell *matCellDef="let element"> {{element.donType}} </td>
+      </ng-container>
+  
+      <!-- Date Column -->
+      <ng-container matColumnDef="donDate">
+        <th mat-header-cell *matHeaderCellDef> Date </th>
+        <td mat-cell *matCellDef="let element"> {{element.donDate | date}} </td>
+      </ng-container>
+  
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+  </div>
+
+
+
+
+<!-- Bouton d'export PDF -->
+<button (click)="exportPDF()">Export PDF ALL DONATIONS</button>
+
+<button (click)="predictDonation()">🔮 PRÉDIRE LE PROCHAIN DON</button>
+
+<div *ngIf="predictionResult" style="margin-top: 15px; background-color: #f0f0f0; padding: 10px;">
+  {{ predictionResult }}
+</div>
+

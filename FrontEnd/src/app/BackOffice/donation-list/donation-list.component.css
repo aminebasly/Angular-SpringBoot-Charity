@@ -1,0 +1,111 @@
+table {
+    width: 10%;
+    margin-top: 60px;
+    
+  }
+  .mat-table {
+    max-width: 100% !important; /* PREVENT EXPANSION */
+    table-layout: fixed !important; /* FIX COLUMN WIDTHS */
+    word-wrap: break-word !important; /* BREAK LONG WORDS */
+    overflow-x: auto;
+  }
+  
+  .mat-cell, .mat-header-cell {
+    white-space: nowrap; /* PREVENT COLUMN WIDTH CHANGE */
+    overflow: hidden;
+    text-overflow: ellipsis; /* SHOW "..." IF TEXT IS TOO LONG */
+  }
+  
+  .mat-column-donDescription {
+    word-wrap: break-word !important; /* ALLOW TEXT TO BREAK */
+    overflow-wrap: break-word !important;
+  }
+  
+  .table-title {
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    margin: 25px 0;
+  }
+
+
+ /* Style global pour la section des statistiques */
+.statistics-container {
+  margin-top: 30px;
+  padding: 20px;
+  background-color: #f7f7f7;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  max-width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.statistics-title {
+  font-size: 26px;
+  font-weight: 600;
+  color: #333;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.statistics {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.statistics p {
+  font-size: 18px;
+  color: #555;
+  margin: 10px 0;
+}
+
+.statistics p strong {
+  color: #007bff;
+}
+
+/* Style du bouton d'export PDF */
+.pdf-export-button,.analysis-section{
+  text-align: center;
+  margin-top: 30px;
+}
+
+button {
+  padding: 12px 30px;
+  font-size: 18px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+button:active {
+  background-color: #004080;
+}
+
+
+
+.toxicity-check-container {
+  display: block;
+  padding: 10px;
+  background-color: #f9f9f9;
+  border: 1px solid #ccc;
+  margin-top: 20px;
+}
+
+
+textarea {
+  width: 100%;
+  height: 150px; /* Ajuste selon ton besoin */
+  padding: 10px;
+  border: 1px solid #ccc;
+}

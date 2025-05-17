@@ -1,0 +1,48 @@
+<div class="assignment-container">
+    <h2>Assignment</h2>
+  
+    <!-- Section to assign a case -->
+    <div class="form-section case-section">
+      <h3>Assign a Case</h3>
+      <div class="input-group">
+        <input 
+          [(ngModel)]="caseTitle" 
+          placeholder="Case Title" 
+          class="input-field" 
+          required
+        >
+        <input 
+          [(ngModel)]="associationNameCase" 
+          placeholder="Association Name" 
+          class="input-field" 
+          required
+        >
+        <button (click)="assignCase()" class="btn btn-assign">Assign the Case</button>
+      </div>
+      <p class="message" [ngClass]="{'error': caseMessage.includes('Error')}">{{ caseMessage }}</p>
+    </div>
+  
+    <!-- Divider for visual separation -->
+    <hr class="section-divider">
+
+    <!-- Section to assign a member -->
+    <div class="form-section member-section">
+      <h3>Assign a Member</h3>
+      <div class="input-group">
+        <input 
+          [(ngModel)]="username" 
+          placeholder="Username" 
+          class="input-field" 
+          required
+        >
+        <input 
+          [(ngModel)]="associationNameMember" 
+          placeholder="Association Name" 
+          class="input-field" 
+          required
+        >
+        <button (click)="assignMember()" class="btn btn-assign">Assign the Member</button>
+      </div>
+      <p class="message" [ngClass]="{'error': memberMessage.includes('Error')}">{{ memberMessage }}</p>
+    </div>
+</div>

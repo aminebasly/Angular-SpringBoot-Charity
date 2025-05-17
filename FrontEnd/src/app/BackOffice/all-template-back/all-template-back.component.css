@@ -1,0 +1,70 @@
+/* Ensure the layout takes full height */
+html, body {
+    height: 100%;
+    margin: 0;
+    font-family: Arial, sans-serif; /* Improve font readability */
+    background-color: #f9f9f9; /* Add a subtle background color */
+}
+
+/* Make the layout container flex and fill screen */
+.layout-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    background-color: #ffffff; /* Add a clean background color */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add subtle shadow for depth */
+}
+
+/* Fix the navbar */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 250px; /* width of the sidebar */
+    right: 0;
+    z-index: 1040;
+    background-color: #343a40; /* Dark background for navbar */
+    color: #ffffff; /* White text for contrast */
+    padding: 10px 15px; /* Add padding for better spacing */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add shadow for depth */
+}
+
+/* Fix the sidebar */
+.main-sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 250px;
+    height: 100vh;
+    z-index: 1030;
+    overflow-y: auto;
+    background-color: #f8f9fa; /* Light background for sidebar */
+    border-right: 1px solid #dee2e6; /* Add border for separation */
+    padding: 10px; /* Add padding for better spacing */
+}
+
+/* Adjust content so it doesn't go under navbar or sidebar */
+.content-wrapper {
+    margin-top: 56px; /* height of the navbar */
+    margin-left: 250px;
+    flex: 1;
+    overflow-y: auto;
+    padding: 20px;
+    background-color: #ffffff; /* Add a clean background color */
+    border-radius: 4px; /* Add slight rounding for modern look */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add shadow for depth */
+}
+
+/* Fix footer at bottom */
+footer.footer {
+    position: fixed;
+    bottom: 0;
+    left: 250px;
+    right: 0;
+    background-color: #f4f6f9;
+    text-align: center;
+    padding: 10px 0;
+    z-index: 1040;
+    font-size: 14px;
+    border-top: 1px solid #dee2e6;
+    color: #6c757d; /* Add subtle text color */
+}

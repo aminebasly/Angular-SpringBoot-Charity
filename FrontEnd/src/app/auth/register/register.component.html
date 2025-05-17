@@ -1,0 +1,242 @@
+<!doctype html>
+<html class="no-js" lang="zxx">
+<head>
+    <link rel="stylesheet" href="/assets/FrontOffice/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/FrontOffice/assets/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="/assets/FrontOffice/assets/css/slicknav.css">
+    <link rel="stylesheet" href="/assets/FrontOffice/assets/css/flaticon.css">
+    <link rel="stylesheet" href="/assets/FrontOffice/assets/css/progressbar_barfiller.css">
+    <link rel="stylesheet" href="/assets/FrontOffice/assets/css/gijgo.css">
+    <link rel="stylesheet" href="/assets/FrontOffice/assets/css/animate.min.css">
+    <link rel="stylesheet" href="/assets/FrontOffice/assets/css/animated-headline.css">
+    <link rel="stylesheet" href="/assets/FrontOffice/assets/css/magnific-popup.css">
+    <link rel="stylesheet" href="/assets/FrontOffice/assets/css/fontawesome-all.min.css">
+    <link rel="stylesheet" href="/assets/FrontOffice/assets/css/themify-icons.css">
+    <link rel="stylesheet" href="/assets/FrontOffice/assets/css/slick.css">
+    <link rel="stylesheet" href="/assets/FrontOffice/assets/css/nice-select.css">
+    <link rel="stylesheet" href="/assets/FrontOffice/assets/css/style.css">
+    <style>
+        /* Custom styles for smaller, ergonomic buttons */
+        .btn-custom {
+            font-size: 14px; /* Smaller text */
+            padding: 8px 16px; /* Adjust padding to make buttons more compact */
+            border-radius: 25px; /* Rounded corners for a more modern look */
+            transition: all 0.3s ease; /* Smooth transition for hover effect */
+        }
+
+        .btn-custom:hover {
+            background-color: #0056b3; /* Darker shade on hover */
+            color: #fff; /* White text on hover */
+            transform: scale(1.05); /* Slightly enlarge the button on hover */
+        }
+
+        .btn-outline-primary {
+            border-color: #007bff; /* Keep the blue outline */
+            color: #007bff;
+        }
+
+        .btn-outline-primary:hover {
+            background-color: #007bff;
+            color: white;
+        }
+
+        /* Center the register form */
+        .register-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f8f9fa;
+        }
+
+        .register-card {
+            width: 100%;
+            max-width: 400px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background-color: #fff;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <!-- Header Start -->
+    <div class="header-area">
+        <div class="main-header">
+            <div class="header-bottom header-sticky">
+                <div class="container-fluid">
+                    <div class="row align-items-center">
+                        <!-- Logo -->
+                        <div class="col-xl-2 col-lg-2">
+                            <div class="logo">
+                                <a href="/"><img src="/assets/FrontOffice/assets/img/logo/logo.png" alt=""></a>
+                            </div>
+                        </div>
+                        <div class="col-xl-10 col-lg-10">
+                            <div class="menu-wrapper d-flex align-items-center justify-content-end">
+                                <!-- Main-menu -->
+                                <div class="main-menu d-none d-lg-block">
+                                    <nav>
+                                        <ul id="navigation">
+                                            <li><a href="/">Sign In</a></li>
+                                            <li><a href="/register">Sign Up</a></li>
+                                        </ul>
+                                    </nav>
+                                </div>
+                                <!-- Header-btn -->
+                                <div class="header-right-btn d-none d-lg-block ml-20">
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Mobile Menu -->
+                        <div class="col-12">
+                            <div class="mobile_menu d-block d-lg-none"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Header End -->
+</header>
+<!-- Header end -->
+
+<div class="register-container">
+    <div class="register-card">
+        <h1 class="text-center register-title">Register</h1>
+        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" class="register-form">
+            <div class="form-group">
+                <label for="username">Username:</label>
+                <input
+                        id="username"
+                        type="text"
+                        formControlName="username"
+                        class="form-control form-control-sm"
+                        placeholder="Enter your username"
+                />
+                <div *ngIf="registerForm.get('username')?.invalid && registerForm.get('username')?.touched">
+                    <small *ngIf="registerForm.get('username')?.errors?.['required']">Username is required.</small>
+                    <small *ngIf="registerForm.get('username')?.errors?.['minlength']">Username must be at least 4 characters long.</small>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input
+                        id="email"
+                        type="email"
+                        formControlName="email"
+                        class="form-control form-control-sm"
+                        placeholder="Enter your email"
+                />
+                <div *ngIf="registerForm.get('email')?.invalid && registerForm.get('email')?.touched">
+                    <small *ngIf="registerForm.get('email')?.errors?.['required']">Email is required.</small>
+                    <small *ngIf="registerForm.get('email')?.errors?.['email']">Email must be in a valid format.</small>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input
+                        id="password"
+                        type="password"
+                        formControlName="password"
+                        class="form-control form-control-sm"
+                        placeholder="Enter your password"
+                />
+                <div *ngIf="registerForm.get('password')?.invalid && registerForm.get('password')?.touched">
+                    <small *ngIf="registerForm.get('password')?.errors?.['required']">Password is required.</small>
+                    <small *ngIf="registerForm.get('password')?.errors?.['minlength']">Password must be at least 6 characters long.</small>
+                    <small *ngIf="registerForm.get('password')?.errors?.['pattern']">Password must contain an uppercase letter and a symbol.</small>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="role">Role:</label>
+                <input
+                        id="role"
+                        type="text"
+                        formControlName="role"
+                        class="form-control form-control-sm"
+                        placeholder="Enter your role"
+                />
+                <div *ngIf="registerForm.get('role')?.invalid && registerForm.get('role')?.touched">
+                    <small *ngIf="registerForm.get('role')?.errors?.['required']">Role is required.</small>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="birthDate">Birth Date:</label>
+                <input
+                        id="birthDate"
+                        type="date"
+                        formControlName="birthDate"
+                        class="form-control form-control-sm"
+                        placeholder="Enter your birth date"
+                />
+                <div *ngIf="registerForm.get('birthDate')?.invalid && registerForm.get('birthDate')?.touched">
+                    <small *ngIf="registerForm.get('birthDate')?.errors?.['required']">Birth Date is required.</small>
+                </div>
+            </div>
+
+            <div class="form-group text-center">
+                <button type="submit" class="btn btn-custom btn-block" [disabled]="!registerForm.valid">
+                    Register
+                </button>
+            </div>
+            <div *ngIf="successMessage" class="alert alert-success text-center">
+                {{ successMessage }}
+            </div>
+            <div *ngIf="errorMessage" class="alert alert-danger text-center">
+                {{ errorMessage }}
+            </div>
+            <div class="text-center mt-4">
+                <p>Go Back to -> <a routerLink="/" class="link">Sign in </a></p>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script src="/assets/FrontOffice/assets/js/vendor/modernizr-3.5.0.min.js"></script>
+<!-- Jquery, Popper, Bootstrap -->
+<script src="/assets/FrontOffice/assets/js/vendor/jquery-1.12.4.min.js"></script>
+<script src="/assets/FrontOffice/assets/js/popper.min.js"></script>
+<script src="/assets/FrontOffice/assets/js/bootstrap.min.js"></script>
+<!-- Jquery Mobile Menu -->
+<script src="/assets/FrontOffice/assets/js/jquery.slicknav.min.js"></script>
+
+<!-- Jquery Slick , Owl-Carousel Plugins -->
+<script src="/assets/FrontOffice/assets/js/owl.carousel.min.js"></script>
+<script src="/assets/FrontOffice/assets/js/slick.min.js"></script>
+<!-- One Page, Animated-HeadLin -->
+<script src="/assets/FrontOffice/assets/js/wow.min.js"></script>
+<script src="/assets/FrontOffice/assets/js/animated.headline.js"></script>
+<script src="/assets/FrontOffice/assets/js/jquery.magnific-popup.js"></script>
+
+<!-- Date Picker -->
+<script src="/assets/FrontOffice/assets/js/gijgo.min.js"></script>
+<!-- Nice-select, sticky -->
+<script src="/assets/FrontOffice/assets/js/jquery.nice-select.min.js"></script>
+<script src="/assets/FrontOffice/assets/js/jquery.sticky.js"></script>
+<!-- Progress -->
+<script src="/assets/FrontOffice/assets/js/jquery.barfiller.js"></script>
+
+<!-- counter , waypoint,Hover Direction -->
+<script src="/assets/FrontOffice/assets/js/jquery.counterup.min.js"></script>
+<script src="/assets/FrontOffice/assets/js/waypoints.min.js"></script>
+<script src="/assets/FrontOffice/assets/js/jquery.countdown.min.js"></script>
+<script src="/assets/FrontOffice/assets/js/hover-direction-snake.min.js"></script>
+
+<!-- contact js -->
+<script src="/assets/FrontOffice/assets/js/contact.js"></script>
+<script src="/assets/FrontOffice/assets/js/jquery.form.js"></script>
+<script src="/assets/FrontOffice/assets/js/jquery.validate.min.js"></script>
+<script src="/assets/FrontOffice/assets/js/mail-script.js"></script>
+<script src="/assets/FrontOffice/assets/js/jquery.ajaxchimp.min.js"></script>
+
+<!-- Jquery Plugins, main Jquery -->
+<script src="/assets/FrontOffice/assets/js/plugins.js"></script>
+<script src="/assets/FrontOffice/assets/js/main.js"></script>
+</body>
+</html>

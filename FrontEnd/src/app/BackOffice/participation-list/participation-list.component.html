@@ -1,0 +1,62 @@
+<div class="container">
+    <div class="participation-card">
+        <!-- Title + Search Row -->
+        <div class="header-row">
+            <h1 class="title">Participation List</h1>
+
+            <div class="search-container">
+                <input
+                        type="text"
+                        [(ngModel)]="searchQuery"
+                        (keyup.enter)="searchParticipations()"
+                        placeholder="Search events..."
+                        class="search-input"
+                />
+                <button class="btn search-btn" (click)="searchParticipations()">Search</button>
+                <button class="btn reset-btn" type="button" (click)="loadParticipations()">Reset</button>
+            </div>
+        </div>
+
+        <!-- Table + Pagination Wrapper -->
+        <div class="table-wrapper">
+            <!-- Participation Table -->
+            <table class="event-table" *ngIf="participations.length > 0; else noData">
+                <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Actions</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr *ngFor="let participation of participations">
+                    <td>{{ participation.participantName }}</td>
+                    <td>{{ participation.participantEmail }}</td>
+                    <td>
+                        <button class="btn update-btn" (click)="editParticipation(participation)">Edit</button>
+                        <button class="btn delete-btn" (click)="deleteParticipation(participation.participantId)">Delete</button>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+
+            <!-- ✅ Pagination positioned right under table -->
+            <div class="pagination-container" *ngIf="participations.length > 0">
+                <button class="pagination-btn" (click)="previousPage()" [disabled]="currentPage === 0">
+                    <span class="pagination-text">Previous</span>
+                </button>
+                <span class="pagination-info">Page {{ currentPage + 1 }} / {{ totalPages }}</span>
+                <button class="pagination-btn" (click)="nextPage()" [disabled]="currentPage + 1 === totalPages">
+                    <span class="pagination-text">Next</span>
+                </button>
+            </div>
+        </div>
+
+        <ng-template #noData>
+            <p class="no-data">No participations found.</p>
+        </ng-template>
+
+        <!-- Modal + Chart remain unchanged -->
+        <!-- ... -->
+    </div>
+</div>

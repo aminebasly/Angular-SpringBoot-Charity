@@ -1,0 +1,47 @@
+
+        <!-- Header Start -->
+        <div class="header-area">
+            <div class="main-header ">
+                <div class="header-bottom  header-sticky">
+                    <div class="container-fluid">
+                        <div class="row align-items-center">
+                            <!-- Logo -->
+                            <div class="col-xl-2 col-lg-2">
+                                <div class="logo">
+                                    <a href="index.html"><img src="/assets/FrontOffice/assets/img/logo/logo.png" alt=""></a>
+                                </div>
+                            </div>
+                            <div class="col-xl-10 col-lg-10">
+                                <div class="menu-wrapper  d-flex align-items-center justify-content-end">
+                                    <!-- Main-menu -->
+                                    <div class="main-menu d-none d-lg-block">
+                                        <nav>
+                                            <ul id="navigation">
+                                                <li *ngIf="isAdmin()"><a href="admin">Dashboard</a></li>
+                                                <li><a href="home">Home</a></li>
+                                                <li><a href="home/event">Social Events</a></li>
+                                                <li><a href="home/afficheDon">donations</a></li>
+                                                <li><a href="home/case">Cases </a></li>
+                                                <li><a href="home/refugee">Refugee support</a>
+                                                    
+                                                </li>
+                                                
+                                            </ul>
+                                        </nav>
+                                    </div>
+                                    <!-- Header-btn -->
+                                    <div class="header-right-btn">
+                                        <a [routerLink]="['/ajoutDon']" class="btn header-btn">Donate</a>
+                                    </div>
+                                </div>
+                            </div> 
+                            <!-- Mobile Menu -->
+                            <div class="col-12">
+                                <div class="mobile_menu d-block d-lg-none"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Header End -->
